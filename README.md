@@ -2,7 +2,18 @@
 # pg_reporter
 PostgreSQL bad queries reporter
 
-Quick start:
+
+## Requirements
+
+PostgreSQL extension pg_stat_statements
+
+In postgresql.conf:
+
+	shared_preload_libraries = 'pg_stat_statements'
+
+
+
+## Quick start:
 
 	git clone https://github.com/dezconnect/pg_reporter.git
 	sudo cp pg_reporter /opt 
