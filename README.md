@@ -41,6 +41,12 @@ servers = [
 ```
 
 
+Reset statements statistic for actual values on your PostgreSQL server
+
+```sql 
+SELECT pg_stat_statements_reset();
+```
+
 Add reporter to root crontab:
 
 	0 0 * * * 	/opt/pg_reporter/reporter_py >> /tmp/pg_reporter.log 2>&1  # For daily start at 0:00 AM
