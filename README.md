@@ -15,6 +15,7 @@ In postgresql.conf:
 
 ## Quick start:
 
+	pip3 install psycopg2 jinja2
 	git clone https://github.com/dezconnect/pg_reporter.git
 	sudo cp -r pg_reporter /opt 
 	cd /opt/pg_reporter
