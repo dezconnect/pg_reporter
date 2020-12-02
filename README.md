@@ -15,7 +15,7 @@ In postgresql.conf:
 
 ## Quick start:
 
-	 it clone https://github.com/dezconnect/pg_reporter.git
+	git clone https://github.com/dezconnect/pg_reporter.git
 	sudo cp -r pg_reporter /opt 
 	cd /opt/pg_reporter
 	sudo cp config_example.py config.py
