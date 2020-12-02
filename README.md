@@ -15,8 +15,8 @@ In postgresql.conf:
 
 ## Quick start:
 
-	git clone https://github.com/dezconnect/pg_reporter.git
-	sudo cp pg_reporter /opt 
+	 it clone https://github.com/dezconnect/pg_reporter.git
+	sudo cp -r pg_reporter /opt 
 	cd /opt/pg_reporter
 	sudo cp config_example.py config.py
 
@@ -40,7 +40,7 @@ servers = [
                 'db_name': 'postgres',
                 'db_user': 'postgres',
                 'db_password': 'pg_password',
-        }
+        },
         'emails': [
             'dba@your_company.com',
             'developer@your_company.com',
@@ -60,4 +60,8 @@ SELECT pg_stat_statements_reset();
 
 Add reporter to root crontab:
 
-	0 0 * * * 	/opt/pg_reporter/reporter_py >> /tmp/pg_reporter.log 2>&1  # For daily start at 0:00 AM
+	sudo su - 
+	crontab -e 
+
+	# Add to cron:
+	0 0 * * * 	/opt/pg_reporter/reporter.py >> /tmp/pg_reporter.log 2>&1  # For daily start at 0:00 AM

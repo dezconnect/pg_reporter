@@ -15,7 +15,7 @@ servers = [
                 'db_name': 'postgres',
                 'db_user': 'postgres',
                 'db_password': 'pg_password',
-        }
+        },
         'emails': [
             'dba@your_company.com',
             'developer@your_company.com',
