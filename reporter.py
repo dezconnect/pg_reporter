@@ -3,7 +3,7 @@
 
 from datetime import datetime
 import psycopg2
-from jinja2 import Template 
+from jinja2 import Template
 
 import logging
 import smtplib
@@ -11,14 +11,18 @@ import smtplib
 from config import *
 from pprint import pprint
 
-logging.basicConfig(filename="/opt/pg_reporter/report.log", level=logging.INFO)
+import sys
+
+path = sys.path[0]
+
+logging.basicConfig(filename=path + "/report.log", level=logging.INFO)
 
 def curr_date():
     return datetime.now().strftime("%Y-%m-%d")
 
 
 def get_query():
-    sql = open('/opt/pg_reporter/query.tpl').read()
+    sql = open(path + '/query.tpl').read()
     template = Template(sql)
     return template.render()
 
@@ -64,8 +68,6 @@ def to_string(result):
 
 def send(server, result):
     conn = smtplib.SMTP(mail_server, mail_server_port)
-    conn.ehlo()
-    conn.starttls()
 
     body = "\r\n".join((
         "From: %s" % sender_mail,
@@ -87,3 +89,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
