@@ -5,13 +5,12 @@ from datetime import datetime
 import psycopg2
 from jinja2 import Template
 
+import sys
 import logging
 import smtplib
 
 from config import *
-from pprint import pprint
 
-import sys
 
 path = sys.path[0]
 
@@ -68,6 +67,10 @@ def to_string(result):
 
 def send(server, result):
     conn = smtplib.SMTP(mail_server, mail_server_port)
+
+    if mail_server_ssl_enabled:
+        conn.ehlo()
+        conn.starttls()
 
     body = "\r\n".join((
         "From: %s" % sender_mail,

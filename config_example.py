@@ -1,6 +1,8 @@
 
 mail_server = 'smtp.your_company.com'
 mail_server_port = '25'
+mail_server_ssl_enabled = True 
+
 sender_mail = 'pg_reporter@you_company.com'
 
 servers = [
